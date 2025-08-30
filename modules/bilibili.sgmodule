@@ -10,13 +10,11 @@ DOMAIN,app.biliapi.net,REJECT
 AND,((DOMAIN-SUFFIX,chat.bilibili.com), (OR,((DOMAIN-KEYWORD,stun), (DOMAIN-KEYWORD,tracker)))),REJECT
 ;DOMAIN-SUFFIX,httpdns.bilibili.com,REJECT
 
-
 [URL Rewrite]
 # 移除视频链接跟踪参数
 ;(^https:\/\/(www|m)\.bilibili\.com\/video\/(BV\w{10}|av\d{9}))(\/?\?.*) 302 $1
 # 移除直播间链接跟踪参数
 ;(^https:\/\/live\.bilibili\.com\/\d+)(\/?\?.*) 302 $1
-
 # 开屏广告
 ^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/resource\/peak\/download - reject-dict
 ^https:\/\/(api|app)\.bili(api|bili)\.(net|com)\/x\/mengqi\/v1\/resource - reject-dict
